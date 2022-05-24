@@ -32,18 +32,47 @@
             </div>
 
         </div>
+
+        <div class="rightSide">
+            <div class="liquidHandler">
+                <div class="lhDeckTray">
+                    <div class="trapezoid"></div>
+                </div>
+                @*<div class="lhDeckTray">
+                    <div class="trapezoid"></div>
+                </div>
+                <div class="lhDeckTray">
+                    <div class="trapezoid"></div>
+                </div>*@
+            </div>
+        </div>
     </div>
 </div>
 
 <style>
     :root {
         --buttonGray: rgb(160, 174, 192);
-        --otherGray: #B8B8B8;
+        --otherGray: #EBEBEB;
         --defaultGray: lightGray;
+    }
+
+    .cubes {
+        display: flex;
+        align-items: center;
     }
 
     .leftSide {
         width: 300px;
+    }
+
+    .rightSide {
+        width: 800px;
+        height: 450px;
+        background: var(--otherGray);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
     }
 
     button {
@@ -75,12 +104,50 @@
         font-weight: 600;
         color: #2b6cb0;
     }
+
+    .liquidHandler {
+        width: 700px;
+        height: 250px;
+        background: darkGray;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        padding: 3px 60px 25px 60px; 
+    }
+
+    .liquidHandler .lhDeckTray {
+        height: 175px;
+        width: 50px;
+        border: 1px solid black;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    .liquidHandler .lhDeckTray:hover {
+        background: red;
+    }
+
+    .liquidHandler .lhDeckTray:hover .trapezoid {
+        background: inherit;
+
+    }
+
+    .trapezoid {
+        width: 37px;
+        height: 23px;
+        border: 1px solid black;
+        border-top: none;
+        transform: perspective(7.7px) rotateX(-10deg);
+        margin: -27.5px 5.5px;
+    }
 </style>
 
 @code {
     public void AddNewDeck()
     {
-        //
+        Console.WriteLine("Hello");
     }
 
     public void DeleteDeck()
