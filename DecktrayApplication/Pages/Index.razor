@@ -1,8 +1,6 @@
 ﻿@page "/"
 
 <div class="wrapper">
-    <h1>Hello world</h1>
-
     <div class="cubes">
         <div class="leftSide">
             <div class="leftUpSide">
@@ -14,12 +12,25 @@
                         Delete
                     </button>
                 </div>
-                <div class="leftUpCube sideCube"></div>
+                <div class="leftUpCube sideCube">
+                    <p class="centerText textCube">Rack</p>
+                </div>
             </div>
 
-            <div class="leftCubes">
-                <div class="leftCubeDown"></div>
+            <div class="leftDownSide" style="margin-top:25px;">
+                <div class="buttons">
+                    <button @onclick="AddNewDeck">
+                        Add
+                    </button>
+                    <button @onclick="DeleteDeck">
+                        Delete
+                    </button>
+                </div>
+                <div class="leftDownCube sideCube">
+                    <p class="centerText textCube">Decktrays</p>
+                </div>
             </div>
+
         </div>
     </div>
 </div>
@@ -27,6 +38,12 @@
 <style>
     :root {
         --buttonGray: rgb(160, 174, 192);
+        --otherGray: #B8B8B8;
+        --defaultGray: lightGray;
+    }
+
+    .leftSide {
+        width: 300px;
     }
 
     button {
@@ -35,15 +52,28 @@
         border-radius: 5px;
         border: none;
         font-weight: 600;
-        background-color: var(--buttonGray);
+        background-color: var(--defaultGray);
     }
 
     .sideCube {
         margin: 10px 0;
         width: 275px;
         height: 275px;
-        background: #B8B8B8;
+        background: var(--defaultGray);
         border-radius: 15px;
+        border: 1px solid black;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    p.centerText {
+        text-align: center;
+    }
+
+    p.textCube {
+        border-radius: 15px 15px 0 0;
+        border-bottom: 1px solid black;
+        font-weight: 600;
+        color: #2b6cb0;
     }
 </style>
 
