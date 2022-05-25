@@ -38,8 +38,8 @@
             <div class="liquidHandler">
                 @for (int i = 0; i < amountOfDecktrays; i++)
                 {
-                    <div class="outsideDeckTray" onclick="clickDeckTray()">
-                        <div class="lhDeckTray" id="decktray_@i" onclick="hoi(this.id)" @onmousedown='() => testMe($"decktray_{i}")'></div>
+                    <div class="outsideDeckTray" onclick="clickDeckTray(this.id)" id="eDecktray_@i">
+                        <div class="lhDeckTray" id="decktray_@i" @onmousedown='() => testMe($"decktray_{i}")'></div>
                         <div class="trapezoid"></div>
                         <div class="editTray" @onclick="() => clickHelp()">
                             <img src="https://cdn-icons-png.flaticon.com/512/45/45706.png" alt="Edit symbol" style="width:55%;" />
@@ -48,10 +48,6 @@
                 }
             </div>
         </div>
-    </div>
-
-    <div id="followMe">
-        <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="TestFollow" style="width:50px;" />
     </div>
 </div>
 
@@ -173,6 +169,10 @@
         border-radius: 5px;
     }
 
+    /*.outsideDeckTray {
+        position: fixed;
+    }*/
+
     .outsideDeckTray:hover .editTray, .outsideDeckTray .editTray:hover {
         visibility: visible;
     }
@@ -219,7 +219,7 @@
 
     private void testMe(string myId)
     {
-        Console.WriteLine($"my id: {myId.Split("_")[1]}");
+        //Console.WriteLine($"my id: {myId.Split("_")[1]}");
     }
 
     private void clickHelp()
