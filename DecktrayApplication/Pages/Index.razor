@@ -35,7 +35,7 @@
             <div class="liquidHandler">
                 @for (int i = 0; i < amountOfDecktrays; i++)
                 {
-                    <div class="lhDeckTray" id="decktray_@i">
+                    <div class="lhDeckTray" id="decktray_@i" onclick="testJavascript()" @onmousedown='() => testMe($"decktray_{i}")'>
                         <div class="trapezoid"></div>
                     </div>
                 }
@@ -111,23 +111,23 @@
         padding: 3px 60px 25px 60px;
     }
 
-        .liquidHandler .lhDeckTray {
-            height: 175px;
-            width: 50px;
-            border: 1px solid black;
-            margin: 0 2px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-        }
+    .liquidHandler .lhDeckTray {
+        height: 175px;
+        width: 50px;
+        border: 1px solid black;
+        margin: 0 2px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
 
-            .liquidHandler .lhDeckTray:hover {
-                background: red;
-            }
+    .liquidHandler .lhDeckTray:hover {
+        background: red;
+    }
 
-                .liquidHandler .lhDeckTray:hover .trapezoid {
-                    background: inherit;
-                }
+    .liquidHandler .lhDeckTray:hover .trapezoid {
+        background: inherit;
+    }
 
     .trapezoid {
         width: 37px;
@@ -150,12 +150,17 @@
         //
     }
 
-    float amountOfDecktrays;
+    short amountOfDecktrays = 1;
 
     private void numberChange(ChangeEventArgs e)
     {
         string myNumber = e.Value.ToString();
-        amountOfDecktrays = float.Parse(myNumber);
+        amountOfDecktrays = short.Parse(myNumber);
         Console.WriteLine(myNumber);
+    }
+
+    private void testMe(string myId)
+    {
+        Console.WriteLine($"my id: {myId.Split("_")[1]}");
     }
 }
