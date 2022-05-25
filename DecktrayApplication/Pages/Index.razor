@@ -16,7 +16,6 @@
                     <p class="centerText textCube">Rack</p>
                 </div>
             </div>
-
             <div class="leftDownSide" style="margin-top:25px;">
                 <div class="buttons">
                     <button @onclick="AddNewDeck">
@@ -28,8 +27,7 @@
                 </div>
                 <div class="leftDownCube sideCube">
                     <p class="centerText textCube">Decktrays</p>
-
-                    <input type="number" @onchange="numberChange" min="1" max="10" value="1" id="numberGen"/>
+                    <input type="number" @onchange="numberChange" min="1" max="10" value="1" id="numberGen" />
                 </div>
             </div>
         </div>
@@ -41,23 +39,6 @@
                         <div class="trapezoid"></div>
                     </div>
                 }
-                
-                </div>
-            </div>
-
-        </div>
-
-        <div class="rightSide">
-            <div class="liquidHandler">
-                <div class="lhDeckTray">
-                    <div class="trapezoid"></div>
-                </div>
-                @*<div class="lhDeckTray">
-                    <div class="trapezoid"></div>
-                </div>
-                <div class="lhDeckTray">
-                    <div class="trapezoid"></div>
-                </div>*@
             </div>
         </div>
     </div>
@@ -127,27 +108,26 @@
         display: flex;
         align-items: center;
         box-sizing: border-box;
-        padding: 3px 60px 25px 60px; 
+        padding: 3px 60px 25px 60px;
     }
 
-    .liquidHandler .lhDeckTray {
-        height: 175px;
-        width: 50px;
-        border: 1px solid black;
-        margin: 0 2px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-    }
+        .liquidHandler .lhDeckTray {
+            height: 175px;
+            width: 50px;
+            border: 1px solid black;
+            margin: 0 2px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
 
-    .liquidHandler .lhDeckTray:hover {
-        background: red;
-    }
+            .liquidHandler .lhDeckTray:hover {
+                background: red;
+            }
 
-    .liquidHandler .lhDeckTray:hover .trapezoid {
-        background: inherit;
-
-    }
+                .liquidHandler .lhDeckTray:hover .trapezoid {
+                    background: inherit;
+                }
 
     .trapezoid {
         width: 37px;
