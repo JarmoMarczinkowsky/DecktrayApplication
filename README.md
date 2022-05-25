@@ -1,0 +1,2 @@
+# DecktrayApplication
+*silence* 
