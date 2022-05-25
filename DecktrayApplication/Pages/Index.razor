@@ -28,6 +28,20 @@
                 </div>
                 <div class="leftDownCube sideCube">
                     <p class="centerText textCube">Decktrays</p>
+
+                    <input type="number" @onchange="numberChange" min="1" max="10" value="1" id="numberGen"/>
+                </div>
+            </div>
+        </div>
+        <div class="rightSide">
+            <div class="liquidHandler">
+                @for (int i = 0; i < amountOfDecktrays; i++)
+                {
+                    <div class="lhDeckTray" id="decktray_@i">
+                        <div class="trapezoid"></div>
+                    </div>
+                }
+                
                 </div>
             </div>
 
@@ -73,6 +87,7 @@
         justify-content: center;
         align-items: center;
         border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
     }
 
     button {
@@ -119,7 +134,7 @@
         height: 175px;
         width: 50px;
         border: 1px solid black;
-        margin: 0;
+        margin: 0 2px;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
@@ -153,5 +168,14 @@
     public void DeleteDeck()
     {
         //
+    }
+
+    float amountOfDecktrays;
+
+    private void numberChange(ChangeEventArgs e)
+    {
+        string myNumber = e.Value.ToString();
+        amountOfDecktrays = float.Parse(myNumber);
+        Console.WriteLine(myNumber);
     }
 }
