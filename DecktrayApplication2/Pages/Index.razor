@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="rightSide">
-            
+
             <button class="exportButton" @onclick="Export">Export</button>
             <div class="mainArea">
                 <div class="liquidHandler">
@@ -82,7 +82,6 @@
     }
 
     .mainArea {
-        
         width: 800px;
         height: 450px;
         background: var(--otherGray);
@@ -130,12 +129,11 @@
     input#numberGen {
         background: transparent;
         outline: none;
-
     }
 
-    input#numberGen:focus {
-        outline: none;
-    }
+        input#numberGen:focus {
+            outline: none;
+        }
 
     .liquidHandler {
         width: 700px;
@@ -147,41 +145,40 @@
         padding: 3px 30px 0 30px;
     }
 
-    .liquidHandler .outsideDeckTray {
-        padding: 3px 3px 3px 3px;
-        border: 2px solid transparent;
-    }
+        .liquidHandler .outsideDeckTray {
+            padding: 3px 3px 3px 3px;
+            border: 2px solid transparent;
+        }
 
-    .liquidHandler .outsideDeckTray:hover {
-        border: 2px solid red;
-        cursor: pointer;
+            .liquidHandler .outsideDeckTray:hover {
+                border: 2px solid red;
+                cursor: pointer;
+            }
 
-    }
+        .liquidHandler .lhDeckTray {
+            height: 175px;
+            width: 50px;
+            border: 1px solid black;
+            border-bottom: none;
+            margin: 0 2px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
 
-    .liquidHandler .lhDeckTray {
-        height: 175px;
-        width: 50px;
-        border: 1px solid black;
-        border-bottom: none;
-        margin: 0 2px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-    }
-
-    .liquidHandler .editTray {
-        width: 40px;
-        height: 30px;
-        margin: 5px 7px;
-        position: fixed;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        visibility: hidden;
-        background: lightblue;
-        cursor: pointer;
-        border-radius: 5px;
-    }
+        .liquidHandler .editTray {
+            width: 40px;
+            height: 30px;
+            margin: 5px 7px;
+            position: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            visibility: hidden;
+            background: lightblue;
+            cursor: pointer;
+            border-radius: 5px;
+        }
 
     /*.outsideDeckTray {
         position: fixed;
@@ -214,7 +211,7 @@
 
     public void Export()
     {
-  
+
     }
 
     short amountOfDecktrays = 1;

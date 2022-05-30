@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecktrayApplication", "DecktrayApplication.csproj", "{88E8184C-E3F0-4161-ADB3-CEA2683993CE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecktrayApplication2", "DecktrayApplication2.csproj", "{DF46543D-D27A-4D99-9C88-1429F69B85A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{88E8184C-E3F0-4161-ADB3-CEA2683993CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{88E8184C-E3F0-4161-ADB3-CEA2683993CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{88E8184C-E3F0-4161-ADB3-CEA2683993CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{88E8184C-E3F0-4161-ADB3-CEA2683993CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF46543D-D27A-4D99-9C88-1429F69B85A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF46543D-D27A-4D99-9C88-1429F69B85A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF46543D-D27A-4D99-9C88-1429F69B85A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF46543D-D27A-4D99-9C88-1429F69B85A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {51E1BF38-2FDE-4378-BF1F-35CA0EC62614}
+		SolutionGuid = {2FC57C94-73D5-4D35-BF6E-B2E70A8F0752}
 	EndGlobalSection
 EndGlobal
