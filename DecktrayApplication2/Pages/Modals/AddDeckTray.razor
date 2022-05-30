@@ -1,0 +1,54 @@
+<div class="myModal">
+
+    <div class="myForm">
+        <div class="form-group">
+            <label for="amountOfTrays">Amount of trays:</label>
+            <input type="number" name="amountOfTrays" value="0" min="0" max="10" @onchange="deckAmount" />
+        </div>
+    </div>
+
+    <div class="previewDecktray testing">
+        <div class="outsideDeckTray" id="previewDecktrayOutline">
+            <div class="lhDeckTray" id="previewDecktray")'></div>
+            <div class="trapezoid"></div>
+        </div>
+    </div>
+</div>
+<button>Ok</button>
+<button>Cancel</button>
+
+<style>
+    .myModal {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .myForm {
+        width: 250px;
+    }
+
+    .form-group {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .previewDecktray {
+        margin-left: 10px;
+        width: 250px;
+        height: 250px;
+        background: lightgray;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+
+@code {
+    const float lengthOfDeck = 175;
+
+    private void deckAmount(ChangeEventArgs e)
+    {
+        int inputNumber = int.Parse(e.Value.ToString());
+        float place1 = lengthOfDeck / 4;
+    }
+}
