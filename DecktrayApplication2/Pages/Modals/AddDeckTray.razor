@@ -49,6 +49,11 @@
     private void deckAmount(ChangeEventArgs e)
     {
         int inputNumber = int.Parse(e.Value.ToString());
-        float place1 = lengthOfDeck / 4;
+        if (inputNumber != 0)
+        {
+            float place1 = lengthOfDeck / inputNumber;
+  
+        }
+
     }
 }
