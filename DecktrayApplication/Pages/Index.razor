@@ -35,17 +35,21 @@
             </div>
         </div>
         <div class="rightSide">
-            <div class="liquidHandler">
-                @for (int i = 0; i < amountOfDecktrays; i++)
-                {
-                    <div class="outsideDeckTray" onclick="clickDeckTray(this.id)" id="eDecktray_@i">
-                        <div class="lhDeckTray" id="decktray_@i" @onmousedown='() => testMe($"decktray_{i}")'></div>
-                        <div class="trapezoid"></div>
-                        <div class="editTray" @onclick="() => clickHelp()">
-                            <img src="https://cdn-icons-png.flaticon.com/512/45/45706.png" alt="Edit symbol" style="width:55%;" />
+            
+            <button class="exportButton" @onclick="Export">Export</button>
+            <div class="mainArea">
+                <div class="liquidHandler">
+                    @for (int i = 0; i < amountOfDecktrays; i++)
+                    {
+                        <div class="outsideDeckTray" onclick="clickDeckTray(this.id)" id="eDecktray_@i">
+                            <div class="lhDeckTray" id="decktray_@i" @onmousedown='() => testMe($"decktray_{i}")'></div>
+                            <div class="trapezoid"></div>
+                            <div class="editTray" onmouseup="editTray()" @onclick="() => clickHelp()">
+                                <img src="https://cdn-icons-png.flaticon.com/512/45/45706.png" alt="Edit symbol" style="width:55%;" />
+                            </div>
                         </div>
-                    </div>  
-                }
+                    }
+                </div>
             </div>
         </div>
     </div>
@@ -75,6 +79,10 @@
 
     .rightSide {
         margin-left: 20px;
+    }
+
+    .mainArea {
+        
         width: 800px;
         height: 450px;
         background: var(--otherGray);
@@ -92,6 +100,10 @@
         border: none;
         font-weight: 600;
         background-color: var(--defaultGray);
+    }
+
+    .exportButton {
+        margin-bottom: 10px;
     }
 
     .sideCube {
@@ -198,6 +210,11 @@
     public void DeleteDeck()
     {
         //
+    }
+
+    public void Export()
+    {
+  
     }
 
     short amountOfDecktrays = 1;

@@ -4,14 +4,27 @@
 
 var clickBool = 0;
 var saveId = "";
+var clickedEdit = 0;
 
 function clickDeckTray(myId) {
-    clickBool++;
     saveId = myId;
+
+    if (clickedEdit == 0) {
+        clickBool++;
+    }
+
     if (clickBool > 1) {
         clickBool = 0;
     }
 }
+
+function editTray() {
+    clickedEdit++;
+    if (clickedEdit > 1) {
+        clickedEdit = 0;
+    }
+}
+
 
 document.addEventListener('mousemove', function (ev) {
     //console.log(`${ev.clientX}:${ev.clientY}`);
