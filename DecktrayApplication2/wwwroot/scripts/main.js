@@ -33,7 +33,7 @@ document.addEventListener('mousemove', function (ev) {
         document.getElementById(saveId).style.transform += 'translateX(' + (ev.clientX - 770) + 'px)';
         document.getElementById(saveId).style.position = "fixed";
     }
-    else {
+    else if(saveId != "") {
         document.getElementById(saveId).style.position = "absolute";
     }
 }, false);
