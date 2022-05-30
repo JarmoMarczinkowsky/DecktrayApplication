@@ -1,5 +1,8 @@
 ﻿@page "/"
 
+@using Pages.Modals;
+@inject IModalService Modal
+
 <div class="wrapper">
     <div class="cubes">
         <div class="leftSide">
@@ -11,6 +14,7 @@
                     <button @onclick="DeleteDeck">
                         Delete
                     </button>
+                    <button style="width:120px;">Show modal</button>
                 </div>
                 <div class="leftUpCube sideCube">
                     <p class="centerText textCube">Rack</p>
@@ -199,6 +203,8 @@
 </style>
 
 @code {
+    [CascadingParameter] BlazoredModalInstance ModalInstance { get; set; }
+
     public void AddNewDeck()
     {
         Console.WriteLine("Hello");
@@ -211,7 +217,7 @@
 
     public void Export()
     {
-
+        Modal.Show<TestModal>("Test Modal");
     }
 
     short amountOfDecktrays = 1;
