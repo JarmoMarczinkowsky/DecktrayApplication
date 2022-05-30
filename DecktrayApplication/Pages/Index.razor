@@ -44,7 +44,7 @@
                         <div class="outsideDeckTray" onclick="clickDeckTray(this.id)" id="eDecktray_@i">
                             <div class="lhDeckTray" id="decktray_@i" @onmousedown='() => testMe($"decktray_{i}")'></div>
                             <div class="trapezoid"></div>
-                            <div class="editTray" @onclick="() => clickHelp()">
+                            <div class="editTray" onmouseup="editTray()" @onclick="() => clickHelp()">
                                 <img src="https://cdn-icons-png.flaticon.com/512/45/45706.png" alt="Edit symbol" style="width:55%;" />
                             </div>
                         </div>
