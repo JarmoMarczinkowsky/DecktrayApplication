@@ -17,7 +17,7 @@
                 @for (int i = 0; i < inputNumber; i++)
                 {
                     float calcAmountOfRacks = 100 / inputNumber;
-                    <div id="previewRack_@i" class="previewRack" onclick="ClickPreviewRack(this.id)" style="width:100%;height:@calcAmountOfRacks%;border:1px solid darkgreen;"></div>
+                    <div id="previewRack_@i" class="previewRack" onclick="ClickPreviewRack(this.id)" style="margin-left:-1px;width:inherit;height:@calcAmountOfRacks%;border:inherit;"></div>
                 }
             </div>
             <div class="trapezoid"></div>
@@ -45,7 +45,7 @@
 
     .form-group input {
         height: 30px;
-        width: 60px;
+        width: 80px;
     }
 
     .previewDecktray {
