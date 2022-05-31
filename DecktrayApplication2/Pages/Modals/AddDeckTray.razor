@@ -3,13 +3,19 @@
     <div class="myForm">
         <div class="form-group">
             <label for="amountOfTrays">Amount of trays:</label>
-            <input type="number" name="amountOfTrays" value="0" min="0" max="10" @onchange="deckAmount" />
+            <input type="number" id="amountOfTrays" value="1" min="1" max="10" @onchange="numberChange" />
         </div>
     </div>
 
     <div class="previewDecktray testing">
         <div class="outsideDeckTray" id="previewDecktrayOutline">
-            <div class="lhDeckTray" id="previewDecktray")'></div>
+            <div class="lhDeckTray" id="previewDecktray">
+                @for (int i = 0; i < inputNumber; i++)
+                {
+                    float calcAmountOfRacks = 100 / inputNumber;
+                    <div id="previewDecktray_test" style="width:100%;height:@calcAmountOfRacks%;border:1px solid lightgreen;"></div>
+                }
+            </div>
             <div class="trapezoid"></div>
         </div>
     </div>
@@ -44,16 +50,36 @@
 </style>
 
 @code {
-    const float lengthOfDeck = 175;
+    const float lengthOfDecktray = 175;
+    float lengthOfRack;
 
-    private void deckAmount(ChangeEventArgs e)
+    short inputNumber = 1;
+    float test;
+
+
+
+    private void numberChange(ChangeEventArgs e)
     {
-        int inputNumber = int.Parse(e.Value.ToString());
-        if (inputNumber != 0)
+        string myNumber = e.Value.ToString();
+        inputNumber = short.Parse(myNumber);
+
+        if (inputNumber < 1)
         {
-            float place1 = lengthOfDeck / inputNumber;
-  
+            inputNumber = 1;
+        }
+        else if (inputNumber > 10)
+        {
+            inputNumber = 10;
         }
 
+        Console.WriteLine($"racks: {inputNumber}");
+    }
+
+    public string RackSize()
+    {
+        lengthOfRack = 100 / inputNumber;
+
+        Console.WriteLine(lengthOfRack);
+        return lengthOfRack.ToString() + "%";
     }
 }
