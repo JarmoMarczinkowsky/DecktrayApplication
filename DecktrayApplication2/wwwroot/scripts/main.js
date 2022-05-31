@@ -25,7 +25,6 @@ function editTray() {
     }
 }
 
-
 document.addEventListener('mousemove', function (ev) {
     //console.log(`${ev.clientX}:${ev.clientY}`);
     if (clickBool == 1) {
@@ -39,3 +38,21 @@ document.addEventListener('mousemove', function (ev) {
 }, false);
 
 //probleem: display flex locked de trays op hun plaats.
+
+//AddDecktrayModal 
+function ClickPreviewRack(myId, parentId) {
+    var myColor = document.getElementById("colorRackPicker").value;
+    document.getElementById(myId).style.background = myColor;
+    var selectedAlignment = document.getElementById("alignSloth").value;
+
+    if (selectedAlignment == "Bottom") {
+        selectedAlignment = "flex-end";
+    }
+    else if (selectedAlignment == "Top") {
+        selectedAlignment = "flex-start";
+    }
+
+    console.log(`parent id: ${parentId}`);
+
+    document.getElementById(parentId).style.justifyContent = selectedAlignment;
+}
