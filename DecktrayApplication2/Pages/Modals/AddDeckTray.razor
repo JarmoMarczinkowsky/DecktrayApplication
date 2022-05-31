@@ -9,6 +9,14 @@
             <label for="colorRackPicker">Color picker:</label>
             <input type="color" id="colorRackPicker" value="" />
         </div>
+        <div class="form-group">
+            <label for="alignSloths">Align sloths:</label>
+            <select id="alignSloth" style="width:80px;height:30px;">
+                <option>Top</option>
+                <option>Center</option>
+                <option>Bottom</option>
+            </select>
+        </div>
     </div>
 
     <div class="previewDecktray testing">
@@ -17,7 +25,7 @@
                 @for (int i = 0; i < inputNumber; i++)
                 {
                     float calcAmountOfRacks = 100 / inputNumber;
-                    <div id="previewRack_@i" class="previewRack" onclick="ClickPreviewRack(this.id)" style="margin-left:-1px;width:inherit;height:@calcAmountOfRacks%;border:inherit;"></div>
+                    <div id="previewRack_@i" class="previewRack" onclick="ClickPreviewRack(this.id, this.parentNode.id)" style="margin-left:-1px;width:inherit;height:@calcAmountOfRacks%;border:inherit;"></div>
                 }
             </div>
             <div class="trapezoid"></div>

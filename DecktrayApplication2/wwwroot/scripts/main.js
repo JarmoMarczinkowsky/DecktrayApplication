@@ -40,8 +40,19 @@ document.addEventListener('mousemove', function (ev) {
 //probleem: display flex locked de trays op hun plaats.
 
 //AddDecktrayModal 
-function ClickPreviewRack(myId) {
+function ClickPreviewRack(myId, parentId) {
     var myColor = document.getElementById("colorRackPicker").value;
-    console.log(`my color is: ${myColor}`);
     document.getElementById(myId).style.background = myColor;
+    var selectedAlignment = document.getElementById("alignSloth").value;
+
+    if (selectedAlignment == "Bottom") {
+        selectedAlignment = "flex-end";
+    }
+    else if (selectedAlignment == "Top") {
+        selectedAlignment = "flex-start";
+    }
+
+    console.log(`parent id: ${parentId}`);
+
+    document.getElementById(parentId).style.justifyContent = selectedAlignment;
 }
