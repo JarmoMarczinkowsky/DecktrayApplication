@@ -1,5 +1,8 @@
 ﻿@page "/"
 
+@using Pages.Modals;
+@inject IModalService Modal
+
 <div class="wrapper">
     <div class="cubes">
         <div class="leftSide">
@@ -11,6 +14,7 @@
                     <button @onclick="DeleteDeck">
                         Delete
                     </button>
+                    <button style="width:120px;">Show modal</button>
                 </div>
                 <div class="leftUpCube sideCube">
                     <p class="centerText textCube">Rack</p>
@@ -18,10 +22,10 @@
             </div>
             <div class="leftDownSide" style="margin-top:25px;">
                 <div class="buttons">
-                    <button @onclick="AddNewDeck">
+                    <button @onclick="AddNewDecktray">
                         Add
                     </button>
-                    <button @onclick="DeleteDeck">
+                    <button @onclick="DeleteDecktray">
                         Delete
                     </button>
                 </div>
@@ -145,40 +149,40 @@
         padding: 3px 30px 0 30px;
     }
 
-        .liquidHandler .outsideDeckTray {
-            padding: 3px 3px 3px 3px;
-            border: 2px solid transparent;
-        }
+    .outsideDeckTray {
+        padding: 3px 3px 3px 3px;
+        border: 2px solid transparent;
+    }
 
-            .liquidHandler .outsideDeckTray:hover {
-                border: 2px solid red;
-                cursor: pointer;
-            }
-
-        .liquidHandler .lhDeckTray {
-            height: 175px;
-            width: 50px;
-            border: 1px solid black;
-            border-bottom: none;
-            margin: 0 2px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-        }
-
-        .liquidHandler .editTray {
-            width: 40px;
-            height: 30px;
-            margin: 5px 7px;
-            position: fixed;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            visibility: hidden;
-            background: lightblue;
+        .outsideDeckTray:hover {
+            border: 2px solid red;
             cursor: pointer;
-            border-radius: 5px;
         }
+
+    .lhDeckTray {
+        height: 175px;
+        width: 50px;
+        border: 1px solid black;
+        border-bottom: none;
+        margin: 0 2px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    .liquidHandler .editTray {
+        width: 40px;
+        height: 30px;
+        margin: 5px 7px;
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        visibility: hidden;
+        background: lightblue;
+        cursor: pointer;
+        border-radius: 5px;
+    }
 
     /*.outsideDeckTray {
         position: fixed;
@@ -199,6 +203,8 @@
 </style>
 
 @code {
+    [CascadingParameter] BlazoredModalInstance ModalInstance { get; set; }
+
     public void AddNewDeck()
     {
         Console.WriteLine("Hello");
@@ -209,9 +215,20 @@
         //
     }
 
+    public void AddNewDecktray()
+    {
+        Console.WriteLine("Opened modal 'create new decktray'");
+        Modal.Show<AddDeckTray>("Create new decktray");
+    }
+
+    public void DeleteDecktray()
+    {
+        //
+    }
+
     public void Export()
     {
-
+        Modal.Show<TestModal>("Test Modal");
     }
 
     short amountOfDecktrays = 1;
