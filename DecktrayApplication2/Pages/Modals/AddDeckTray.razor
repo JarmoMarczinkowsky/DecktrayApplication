@@ -34,8 +34,8 @@
         </div>
     </div>
 </div>
-<button onclick="clickedOk">Ok</button>
-<button onclick="clickedCancel">Cancel</button>
+<button @onclick="clickedOk">Ok</button>
+<button @onclick="clickedCancel">Cancel</button>
 
 <style>
     .myModal {
@@ -70,13 +70,20 @@
 </style>
 
 @code {
+    [CascadingParameter]
+    BlazoredModalInstance BlazoredModal { get; set; }
+
     const float lengthOfDecktray = 175;
     float lengthOfRack;
 
     short inputNumber = 1;
     float test;
 
-
+    Dictionary<string, string> dictTest = new Dictionary<string, string>
+    {
+        { "Test1", "Test1.1" },
+        { "Test2", "Test2.2" }
+    };
 
     private void numberChange(ChangeEventArgs e)
     {
@@ -101,5 +108,27 @@
 
         Console.WriteLine(lengthOfRack);
         return lengthOfRack.ToString() + "%";
+    }
+
+    public void clickedOk()
+    {
+        dictTest.Add("RackAmount", inputNumber.ToString());
+
+
+
+
+        foreach (KeyValuePair<string, string> myTest in dictTest)
+        {
+            if (dictTest.ContainsKey("RackAmount"))
+            {
+                Console.WriteLine($"RackAmount is: {myTest.Value}");
+            }
+        }
+
+    }
+
+    private void clickedCancel()
+    {
+        BlazoredModal.CancelAsync();
     }
 }
