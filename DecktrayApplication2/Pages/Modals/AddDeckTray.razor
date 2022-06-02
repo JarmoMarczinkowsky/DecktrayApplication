@@ -2,8 +2,8 @@
 
     <div class="myForm">
         <div class="form-group">
-            <label for="amountOfTrays">Amount of trays:</label>
-            <input type="number" id="amountOfTrays" value="1" min="1" max="100" @onchange="numberChange" />
+            <label for="amountOfRacks">Amount of racks:</label>
+            <input type="number" id="amountOfRacks" value="1" min="1" max="100" @onchange="numberChange" />
         </div>
         <div class="form-group">
             <label for="colorRackPicker">Color picker:</label>
@@ -24,16 +24,18 @@
             <div class="lhDeckTray" id="previewDecktray">
                 @for (int i = 0; i < inputNumber; i++)
                 {
-                    float calcAmountOfRacks = 100 / inputNumber;
-                    <div id="previewRack_@i" class="previewRack" onclick="ClickPreviewRack(this.id, this.parentNode.id)" style="margin-left:-1px;width:inherit;height:@calcAmountOfRacks%;border:inherit;"></div>
+                    double calcAmountOfRacks = Math.Round(Double.Parse("100") / Double.Parse($"{inputNumber}"), 5);
+                    calcAmountOfRacks = Double.Parse(calcAmountOfRacks.ToString().Replace(",", "."));
+                    Console.WriteLine(calcAmountOfRacks);
+                    <div id="previewRack_@i" class="previewRack" onclick="ClickPreviewRack(this.id, this.parentNode.id)" style="margin-left:-1px;width:inherit;height:@calcAmountOfRacks%;border:1px solid black;border-top: none;"></div>
                 }
             </div>
             <div class="trapezoid"></div>
         </div>
     </div>
 </div>
-<button>Ok</button>
-<button>Cancel</button>
+<button onclick="clickedOk">Ok</button>
+<button onclick="clickedCancel">Cancel</button>
 
 <style>
     .myModal {

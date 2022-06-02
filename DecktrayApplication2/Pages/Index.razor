@@ -14,7 +14,6 @@
                     <button @onclick="DeleteDeck">
                         Delete
                     </button>
-                    <button style="width:120px;">Show modal</button>
                 </div>
                 <div class="leftUpCube sideCube">
                     <p class="centerText textCube">Rack</p>
@@ -184,9 +183,6 @@
         border-radius: 5px;
     }
 
-    /*.outsideDeckTray {
-        position: fixed;
-    }*/
 
     .outsideDeckTray:hover .editTray, .outsideDeckTray .editTray:hover {
         visibility: visible;
@@ -205,9 +201,18 @@
 @code {
     [CascadingParameter] BlazoredModalInstance ModalInstance { get; set; }
 
+
     public void AddNewDeck()
     {
         Console.WriteLine("Hello");
+        float rekenSom1 = 11 / 2;
+        double rekenSom2 = Double.Parse("2") / Double.Parse("3");
+        decimal rekenSom3 = 11 / 2;
+        Console.WriteLine(rekenSom1);
+        Console.WriteLine(rekenSom2);
+        Console.WriteLine(rekenSom3);
+
+
     }
 
     public void DeleteDeck()
