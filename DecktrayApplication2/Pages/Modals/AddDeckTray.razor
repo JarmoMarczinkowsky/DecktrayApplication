@@ -2,12 +2,12 @@
 
     <div class="myForm">
         <div class="form-group">
-            <label for="amountOfTrays">Amount of trays:</label>
-            <input type="number" id="amountOfTrays" value="1" min="1" max="100" @onchange="numberChange" />
+            <label for="amountOfRacks">Amount of racks:</label>
+            <input type="number" id="amountOfRacks" value="1" min="0" max="100" @onchange="numberChange" />
         </div>
         <div class="form-group">
             <label for="colorRackPicker">Color picker:</label>
-            <input type="color" id="colorRackPicker" value="" />
+            <input type="color" id="colorRackPicker" value="#FF0000" />
         </div>
         <div class="form-group">
             <label for="alignSloths">Align sloths:</label>
@@ -24,16 +24,18 @@
             <div class="lhDeckTray" id="previewDecktray">
                 @for (int i = 0; i < inputNumber; i++)
                 {
-                    float calcAmountOfRacks = 100 / inputNumber;
-                    <div id="previewRack_@i" class="previewRack" onclick="ClickPreviewRack(this.id, this.parentNode.id)" style="margin-left:-1px;width:inherit;height:@calcAmountOfRacks%;border:inherit;"></div>
+                    double calcAmountOfRacks = Math.Round(Double.Parse("100") / Double.Parse($"{inputNumber}"), 5);
+                    calcAmountOfRacks = Double.Parse(calcAmountOfRacks.ToString().Replace(",", "."));
+
+                    <div id="previewRack_@i" class="previewRack" onclick="ClickPreviewRack(this.id, this.parentNode.id)" style="margin-left:-1px;width:inherit;height:@calcAmountOfRacks%;border:1px solid black;border-top: none;"></div>
                 }
             </div>
             <div class="trapezoid"></div>
         </div>
     </div>
 </div>
-<button>Ok</button>
-<button>Cancel</button>
+<button @onclick="clickedOk">Ok</button>
+<button @onclick="clickedCancel">Cancel</button>
 
 <style>
     .myModal {
@@ -68,26 +70,36 @@
 </style>
 
 @code {
+    [CascadingParameter]
+    BlazoredModalInstance BlazoredModal { get; set; }
+    string ThisIsATest { get; set; } = "test1";
+
     const float lengthOfDecktray = 175;
     float lengthOfRack;
 
     short inputNumber = 1;
     float test;
 
-
+    Dictionary<string, string> dictTest = new Dictionary<string, string>
+    {
+        { "Test1", "Test1.1" },
+        { "Test2", "Test2.2" }
+    };
 
     private void numberChange(ChangeEventArgs e)
     {
         string myNumber = e.Value.ToString();
         inputNumber = short.Parse(myNumber);
+        short minRackCount = 0;
+        short maxRackCount = 10;
 
-        if (inputNumber < 1)
+        if (inputNumber < minRackCount)
         {
-            inputNumber = 1;
+            inputNumber = minRackCount;
         }
-        else if (inputNumber > 100)
+        else if (inputNumber > maxRackCount)
         {
-            inputNumber = 100;
+            inputNumber = maxRackCount;
         }
 
         Console.WriteLine($"racks: {inputNumber}");
@@ -99,5 +111,25 @@
 
         Console.WriteLine(lengthOfRack);
         return lengthOfRack.ToString() + "%";
+    }
+
+    public void clickedOk()
+    {
+        dictTest.Add("RackAmount", inputNumber.ToString());
+
+        BlazoredModal.CloseAsync(ModalResult.Ok($"Form was submitted succesfully"));
+        //foreach (KeyValuePair<string, string> myTest in dictTest)
+        //{
+        //    if (dictTest.ContainsKey("RackAmount"))
+        //    {
+        //        Console.WriteLine($"RackAmount is: {myTest.Value}");
+        //    }
+        //}
+
+    }
+
+    private void clickedCancel()
+    {
+        BlazoredModal.CancelAsync();
     }
 }
