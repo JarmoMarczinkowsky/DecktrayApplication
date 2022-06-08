@@ -21,7 +21,7 @@
             </div>
             <div class="leftDownSide" style="margin-top:25px;">
                 <div class="buttons">
-                    <button @onclick="AddNewDecktray">
+                    <button @onclick="ShowModal">
                         Add
                     </button>
                     <button @onclick="DeleteDecktray">
@@ -173,7 +173,7 @@
         width: 40px;
         height: 30px;
         margin: 5px 7px;
-        position: fixed;
+        position: absolute;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -182,7 +182,6 @@
         cursor: pointer;
         border-radius: 5px;
     }
-
 
     .outsideDeckTray:hover .editTray, .outsideDeckTray .editTray:hover {
         visibility: visible;
@@ -201,12 +200,16 @@
 @code {
     [CascadingParameter] BlazoredModalInstance ModalInstance { get; set; }
 
+    void ShowModal()
+    {
+        Modal.Show<AddDeckTray>("Add decktray");
+    }
 
     public void AddNewDeck()
     {
         Console.WriteLine("Hello");
         float rekenSom1 = 11 / 2;
-        double rekenSom2 = Double.Parse("2") / Double.Parse("3");
+        double rekenSom2 = Double.Parse("11") / Double.Parse("2");
         decimal rekenSom3 = 11 / 2;
         Console.WriteLine(rekenSom1);
         Console.WriteLine(rekenSom2);
